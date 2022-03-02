@@ -12,14 +12,14 @@
 function chunk(array, size) 
 {
     var chunkedArray = [];
-    for(var i=0; i< array.length; i = i+size)//2
+    for(var i=0; i< array.length; i = i+size)
     {
         var arrChunk = [];
         for(var j=i; j< i+size && j< array.length; j++)
         {
-            arrChunk.push(array[j]);//5
+            arrChunk.push(array[j]);
         }
-        chunkedArray.push(arrChunk);;//[1,2],[3,4][5]
+        chunkedArray.push(arrChunk);;
     }
     return chunkedArray;
 }

@@ -7,16 +7,20 @@
 
 function maxChar(str) 
 {
-    var maxChar, maxCharCount = 0, countChar = new Array(256).fill(0); ;
+    var maxChar, maxCharCount = 0, countChar = {} ;
     for(var i = 0; i < str.length; i++)
     {
-        countChar[str.charCodeAt(i)]++;
+        if (!countChar[str[i]]) 
+        {
+            countChar[str[i]] = 0;
+        }
+        countChar[str[i]]++;
     }
     for(var i = 0; i < str.length; i++)
     {
-        if (countChar[str.charCodeAt(i)] > maxCharCount)
+        if (countChar[str[i]] > maxCharCount)
         {
-            maxCharCount = countChar[str.charCodeAt(i)];
+            maxCharCount = countChar[str[i]];
             maxChar = str[i];
         }
     }

@@ -15,6 +15,10 @@ function anagrams(stringA, stringB)
     var lowerStringB = stringB.toLowerCase();
     for(let charA of lowerStringA)
     {
+        if(!isAlphaOrDigit(charA))
+        {
+            continue;
+        }
         if(anagram[charA] == undefined)
         {
             anagram[charA] = 1;
@@ -24,7 +28,7 @@ function anagrams(stringA, stringB)
     }
     for(let charB of lowerStringB)
     {
-        if((anagram[charB] == undefined || anagram[charB] < 1) && (charB != charB.toUpperCase()))
+        if((anagram[charB] == undefined || anagram[charB] < 1) && isAlphaOrDigit(charB))
         {
             return false;
         }
@@ -32,11 +36,24 @@ function anagrams(stringA, stringB)
     }
     for(let charA of lowerStringA)
     {
-        if(charA != charA.toUpperCase() && anagram[charA] > 0)
+        if(isAlphaOrDigit(charA) && anagram[charA] > 0)
         {
             return false;
         }
     }
     return true;
+}
+
+function isAlphaOrDigit(c)
+{
+    if(parseInt(c))
+    {
+        return true;
+    }
+    if(c != c.toUpperCase())
+    {
+        return true;
+    }
+    return false;
 }
 module.exports = anagrams;

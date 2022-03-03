@@ -34,6 +34,5 @@ function steps(n)
         console.log(str);
     }
 }
-//steps(3);
 
 module.exports = steps;
